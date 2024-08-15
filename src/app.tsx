@@ -20,3 +20,5 @@ const router = createBrowserRouter([
 export function App() {
   return <RouterProvider router={router}/>
 }
+
+//TODO: Create new components if necessary, example: Modal and Input
