@@ -3,11 +3,13 @@ import { FormEvent } from "react";
 import { Button } from "../../../components/button";
 
 interface ConfirmTripModalProps{
-  closeTripModal : () => void;
-  createTrip : (event: FormEvent<HTMLFormElement>) => void;
+  closeTripModal: () => void;
+  createTrip: (event: FormEvent<HTMLFormElement>) => void;
+  setOwnerEmail: (email: string) => void;
+  setOwnerName: (name: string) => void;
 }
 
-export function ConfirmTripModal({closeTripModal, createTrip}:ConfirmTripModalProps){
+export function ConfirmTripModal({closeTripModal, createTrip, setOwnerEmail, setOwnerName}:ConfirmTripModalProps){
 
   return (
   <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
@@ -33,6 +35,7 @@ export function ConfirmTripModal({closeTripModal, createTrip}:ConfirmTripModalPr
             type="text" 
             placeholder="Digite seu nome completo" 
             className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
+            onChange={event => setOwnerName(event.target.value)}
           />
         </div>
 
@@ -44,6 +47,7 @@ export function ConfirmTripModal({closeTripModal, createTrip}:ConfirmTripModalPr
             type="email" 
             placeholder="Digite seu e-mail pessoal" 
             className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
+            onChange={event => setOwnerEmail(event.target.value)}
           />
         </div>
 

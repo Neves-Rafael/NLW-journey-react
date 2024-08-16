@@ -1,7 +1,18 @@
 import { MapPin, Calendar, Settings2 } from "lucide-react";
 import { Button } from "../../../components/button";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { api } from "../../../lib/axios";
 
 export function DestinationHeader(){
+
+  const { tripId } = useParams()
+  
+  console.log(tripId)
+
+  useEffect(() => {
+    api.get(`/trips/${tripId}`).then(response => console.log(response.data))
+  }, [tripId])
 
   return (
     <div className="px-4 h-16 rounded-xl bg-zinc-900 shadow-shape flex items-center justify-between">
